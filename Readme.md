@@ -73,18 +73,14 @@ SweetShop/
 2. Create `.env`
    ```
    PORT=5000
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
+   MONGODB_URI=ongodb+srv://sweetuser:SweetPass123!@cluster0.7zetr.mongodb.net/sweetshop?appName=Cluster0
+   JWT_SECRET=TheSweetShopSecret
    NODE_ENV=development
    ```
 3. Run server  
    ```bash
    npm run dev
    ```
-
-Backend runs at:  
-👉 **http://localhost:5000**
-
 ---
 
 ## 🎨 Frontend Setup
@@ -98,10 +94,6 @@ Backend runs at:
    ```bash
    npm run dev
    ```
-
-Frontend runs at:  
-👉 **http://localhost:3000**
-
 ---
 
 ## 🛠 API Summary
@@ -148,7 +140,9 @@ npm test -- --coverage
 
 ## 📸 Screenshots
 
+![alt text](frontend/assets/ss1.png)
 
+![alt text](frontend/assets/ss2.png)
 
 ---
 
@@ -184,5 +178,3 @@ However, **I manually reviewed, corrected, and validated all AI‑suggested code
 
 ---
 
-## 🤝 Contact
-For questions or contributions, feel free to open an issue or submit a PR.
