@@ -1,125 +1,188 @@
-# TDD Kata: Sweet Shop Management System
 
-A full-stack Sweet Shop Management System designed and developed using
-**Test-Driven Development (TDD)**.\
-This project demonstrates backend API development, database integration,
-authentication, frontend UI implementation, and responsible AI-assisted
-development workflows.
+# 🍬 Sweet Shop Management System
 
-------------------------------------------------------------------------
+## 📌 Project Overview
+A full-stack web application for managing sweet shop inventory with secure authentication, product management, and purchase functionality.
 
-## 🚀 Project Overview
+---
 
-The Sweet Shop Management System allows users to browse sweets, purchase
-items, manage inventory, and perform administrative actions such as
-adding or updating sweets.
+## 🚀 Features
+- **User Authentication** — Register & Login using JWT  
+- **Sweet Management** — View, search & filter sweets  
+- **Purchase System** — Users can purchase sweets (inventory decreases)  
+- **Admin Panel** — Add, update, delete & restock sweets  
+- **Responsive UI** — Works across devices  
 
-------------------------------------------------------------------------
+---
 
-## 🛠️ Tech Stack
+## 🧰 Tech Stack
 
-### Backend
+### **Backend**
+- Node.js + Express  
+- TypeScript  
+- MongoDB + Mongoose  
+- JWT authentication  
+- Jest (Unit Testing)
 
--   Node.js + Express\
--   MongoDB + Mongoose\
--   JWT Authentication\
--   Multer for image uploads\
--   Jest + Supertest
+### **Frontend**
+- React 18  
+- TypeScript  
+- Vite  
+- React Router  
+- Axios  
 
-### Frontend
+---
 
--   React + Vite\
--   Axios
+## 📁 Repository Structure
 
-------------------------------------------------------------------------
+```
+SweetShop/
+├── backend/
+│   ├── src/
+│   │   ├── __tests__/          
+│   │   ├── config/             
+│   │   ├── controllers/        
+│   │   ├── middleware/         
+│   │   ├── models/             
+│   │   ├── routes/             
+│   │   └── server.ts           
+│   ├── package.json
+│   └── tsconfig.json
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/         
+│   │   ├── context/            
+│   │   ├── pages/              
+│   │   ├── App.jsx             
+│   │   └── main.jsx            
+│   ├── package.json
+│   └── vite.config.js
+└── README.md
+```
 
-## 🔐 Test User Accounts
+---
 
-### Admin
+## ⚙️ Backend Setup
 
--   Email: **preksha@test.com**\
--   Password: **123456**
+1. Navigate into backend  
+   ```bash
+   cd backend
+   npm install
+   ```
+2. Create `.env`
+   ```
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   NODE_ENV=development
+   ```
+3. Run server  
+   ```bash
+   npm run dev
+   ```
 
-### User
+Backend runs at:  
+👉 **http://localhost:5000**
 
--   Email: **yashi@test.com**\
--   Password: **123456**
+---
 
-------------------------------------------------------------------------
+## 🎨 Frontend Setup
 
-## 📦 Project Setup
+1. Navigate into frontend  
+   ```bash
+   cd frontend
+   npm install
+   ```
+2. Start dev server  
+   ```bash
+   npm run dev
+   ```
 
-### 1️⃣ Backend
+Frontend runs at:  
+👉 **http://localhost:3000**
 
-    cd backend
-    npm install
+---
 
-Create `.env`:
+## 🛠 API Summary
 
-    PORT=5000
-    MONGO_URI=your_mongo_url
-    JWT_SECRET=your_secret
+### **Authentication**
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register user |
+| POST | `/api/auth/login` | Login user |
 
-Run backend:
+### **Sweets (Protected)**
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/sweets` | List all sweets |
+| GET | `/api/sweets/search` | Search sweets |
+| POST | `/api/sweets` | Add sweet (admin) |
+| PUT | `/api/sweets/:id` | Update sweet (admin) |
+| DELETE | `/api/sweets/:id` | Delete sweet (admin) |
 
-    npm start
+### **Inventory**
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/sweets/:id/purchase` | Purchase |
+| POST | `/api/sweets/:id/restock` | Restock (admin) |
 
-Run tests:
+---
 
-    npm test
+## 🧪 Testing
 
-------------------------------------------------------------------------
+Run Jest tests:
 
-### 2️⃣ Frontend
+```bash
+cd backend
+npm test
+```
 
-    cd frontend
-    npm install
-    npm run dev
+With coverage:
 
-------------------------------------------------------------------------
+```bash
+npm test -- --coverage
+```
 
-## 📡 API Endpoints
+---
 
-### Auth
-
--   POST `/api/auth/register`
--   POST `/api/auth/login`
-
-### Sweets (Protected)
-
--   POST `/api/sweets`
--   GET `/api/sweets`
--   GET `/api/sweets/search`
--   PUT `/api/sweets/:id`
--   DELETE `/api/sweets/:id`
-
-### Inventory (Protected)
-
--   POST `/api/sweets/:id/purchase`
--   POST `/api/sweets/:id/restock`
-
-------------------------------------------------------------------------
+## 📸 Screenshots
 
 
-## 🧪 Test Report
 
-    Test Suites: 2 passed, 2 total
-    Tests:       28 passed
+---
 
-------------------------------------------------------------------------
+# 📘 My AI Usage
 
-# 🤖 My AI Usage
+This project includes the required "My AI Usage" documentation.
 
-AI tools (ChatGPT, etc.) were used for: - Brainstorming API structure\
-- Debugging\
-- Generating boilerplate\
-- Writing documentation\
-- Improving tests
+### **AI Tools Used**
+- **ChatGPT (GPT‑5.1)** — Code guidance, debugging help, documentation  
+- **GitHub Copilot** — Inline code suggestions  
+- **Gemini** — Occasional help structuring API flows  
 
-All AI-generated content was reviewed and refined manually.
+---
 
-------------------------------------------------------------------------
+### **How AI Was Used**
+- Helped generate boilerplate for Express routes, controllers, and Jest tests  
+- Used to debug TypeScript model errors  
+- Assisted in structuring the frontend pages and state management  
+- Generated parts of this README documentation  
+- Asking for best practices in JWT security & folder structuring  
 
-## 🎉 Final Notes
+---
 
-This README is auto-generated and ready for submission.
+### **Reflection on AI Usage**
+AI tools significantly improved the speed of development.  
+They helped me:
+- Fix errors faster  
+- Write boilerplate code quickly  
+- Maintain consistent project structure  
+- Learn better practices
+
+However, **I manually reviewed, corrected, and validated all AI‑suggested code**, ensuring the final implementation was fully understood and written intentionally.
+
+---
+
+## 🤝 Contact
+For questions or contributions, feel free to open an issue or submit a PR.

@@ -1,4 +1,6 @@
 export default function (err, req, res, next) {
-console.error(err.stack);
-res.status(err.status || 500).json({ message: err.message || 'Server Error' });
+  console.error(err.stack);
+  res
+    .status(err.status || 500)
+    .json({ message: err.message || "Server Error" });
 }
