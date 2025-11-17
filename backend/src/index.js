@@ -15,12 +15,32 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+// --- 🔽 YEH RAHA UPDATED CODE 🔽 ---
+
+// List of origins that are allowed to make requests
+const allowedOrigins = [
+  "https://sweet-shop-incubyte-eosin.vercel.app", // Aapka Vercel URL
+  "http://localhost:5173"                       // Aapka local development URL
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, or server-to-server)
+    if (!origin) return callback(null, true);
+    
+    // Check if the incoming origin is in our allowed list
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false); // Block the request
+    }
+    return callback(null, true); // Allow the request
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// --- 🔼 UPDATE YAHAN KHATM HOTA HAI 🔼 ---
 
 app.use('/public', express.static(path.join(__dirname, '../public')));
 app.use(express.json({ limit: '1mb' }));
